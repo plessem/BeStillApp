@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+.app-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  flex: 1 0 21%; /* This will make the cards take up approximately 1/4 of the container width, adjusting for four cards */
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.app-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
