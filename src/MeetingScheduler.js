@@ -35,26 +35,26 @@ const MeetingScheduler = () => {
         <h1>Meeting Scheduler</h1>
         <StaticDateTimePicker onAccept={(e) => handleAccept(e)} defaultValue={dayjs('2022-04-17T15:30')} label="When to schedule" />
         <TableContainer component = {Paper}>
-        <Table sx={{ minWidth: 650}} >
-          <TableHead>
-            <TableRow>
-              <TableCell>Date</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {meetings.map((meeting) => (
-              <TableRow
-                key={meeting.date}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="meeting">
-                  {meeting.date}
-                </TableCell>
+          <Table sx={{ minWidth: 650}} >
+            <TableHead>
+              <TableRow>
+                <TableCell>Date</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {meetings.map((meeting) => (
+                <TableRow
+                  key={meeting.date}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="meeting">
+                    {meeting.date}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Container>
     </LocalizationProvider>
   );
