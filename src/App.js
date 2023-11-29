@@ -1,31 +1,36 @@
-import React from "react";
+import "./App.css";
+
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import "./App.css";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import EmotionTracker from "./EmotionTracker";
+import MeetingScheduler from "./MeetingScheduler";
+import React from "react";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 const HomePage = () => {
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Box className="app">
-              <AppBar position="static">
-                <Toolbar>
-                  <Typography variant="h6" component="div">
-                    Welcome to Our App
-                  </Typography>
-                </Toolbar>
-              </AppBar>
+    <Box className="app">
+      <AppBar position="static">
+        <Toolbar>
+          <div className="my-element">
+            <Typography variant="h6" component="div">
+              BeStill
+            </Typography>
+          </div>
+        </Toolbar>
+      </AppBar>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
               <Container className="app-main">
                 <Card className="card" id="get-help-now">
                   <CardContent>
@@ -43,7 +48,9 @@ const HomePage = () => {
                     <Typography variant="body2">
                       Schedule your appointment with just one click.
                     </Typography>
-                    <Button variant="contained">Schedule</Button>
+                    <Link to="/schedule">
+                      <Button variant="contained">Schedule</Button>
+                    </Link>
                   </CardContent>
                 </Card>
                 <Card className="card" id="track-emotions">
@@ -67,17 +74,19 @@ const HomePage = () => {
                   </CardContent>
                 </Card>
               </Container>
-              <Box className="app-footer" component="footer">
-                © 2023 Our App
-              </Box>
-            </Box>
-          }
-        />
-        {/* Add a Route for the emotion page */}
-        <Route path="/track-emotions" element={<EmotionTracker />} />
-      </Routes>
-    </Router>
+            }
+          />
+          {/* Add a Route for the emotion page */}
+          <Route path="/track-emotions" element={<EmotionTracker />} />
+          <Route path="/schedule" element={<MeetingScheduler />} />
+        </Routes>
+      </Router>
+      <Box className="app-footer" component="footer">
+        © 2023 Our App
+      </Box>
+    </Box>
   );
 };
 
 export default HomePage;
+
