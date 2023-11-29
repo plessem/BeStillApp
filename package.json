@@ -1,6 +1,7 @@
 {
   "name": "bestillapp",
   "version": "0.1.0",
+  "homepage": "https://plessem.github.io/bestillapp",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
