@@ -1,12 +1,13 @@
 {
   "name": "bestillapp",
   "version": "0.1.0",
-  "homepage": "https://plessem.github.io/BeStillApp",
+  "homepage": "https://plessem.github.io/BeStillApp/",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.18",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.19",
     "@mui/x-data-grid": "^6.18.1",
     "@mui/x-date-pickers": "^6.18.2",
     "@testing-library/jest-dom": "^5.17.0",

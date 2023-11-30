@@ -13,32 +13,37 @@ import React, { useState } from "react";
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { StaticDateTimePicker } from "@mui/x-date-pickers";
+import MeetingScheduler from "./MeetingScheduler";
 import dayjs from "dayjs";
 
-const MeetingScheduler = () => {
+const MeetingMain = () => {
   const [meetings, setMeetings] = useState([]);
+  const counselors = [
+    "Camryn Bailey",
+    "Trevor McGeer",
+    "Karsyn Perkins",
+    "Paige Weaver",
+    "Kylee Holmes",
+    "Erik Velez",
+  ];
 
-
-  function addMeeting(date) {
-    setMeetings([...meetings, { date: date.format("YYYY-MM-DD HH:mm") }]);
-  }
   
-  function handleAccept(e) {
-    addMeeting(e)
+  function addMeeting(date, counselor) {
+    setMeetings([...meetings, { date: date, counselor: counselor }]);
   }
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       
       <Container maxWidth="sm">
-        <h1>Meeting Scheduler</h1>
-        <StaticDateTimePicker onAccept={(e) => handleAccept(e)} defaultValue={dayjs('2022-04-17T15:30')} label="When to schedule" />
+        <MeetingScheduler addMeeting={addMeeting}/>
         <TableContainer component = {Paper}>
-          <Table sx={{ minWidth: 650}} >
+          <Table sx={{ minWidth:500}} >
             <TableHead>
               <TableRow>
                 <TableCell>Date</TableCell>
+                <TableCell>Time</TableCell>
+                <TableCell>Counselor</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -48,7 +53,13 @@ const MeetingScheduler = () => {
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="meeting">
-                    {meeting.date}
+                    {meeting.date.format("dddd, MMMM D, YYYY")}
+                  </TableCell>
+                  <TableCell component="th" scope="meeting">
+                    {meeting.date.format("h:mm A")}
+                  </TableCell>
+                  <TableCell component="th" scope="meeting">
+                    {meeting.counselor}
                   </TableCell>
                 </TableRow>
               ))}
@@ -60,4 +71,4 @@ const MeetingScheduler = () => {
   );
 };
 
-export default MeetingScheduler;
+export default MeetingMain;
