@@ -18,10 +18,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { StaticDateTimePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 
-const MeetingScheduler = ({ addMeeting, meeting }) => {
-  const [date, setDate] = useState(dayjs());
-  const [open, setOpen] = useState(false);
-  const [counselor, setCounselor] = useState("");
+const MeetingScheduler = ({ saveMeeting, meeting, open, setOpen }) => {
+  const [date, setDate] = useState(meeting ? meeting.date : dayjs());
+  const [counselor, setCounselor] = useState(meeting ? meeting.counselor : "");
 
   const counselors = [
     "Camryn Bailey",
@@ -32,12 +31,8 @@ const MeetingScheduler = ({ addMeeting, meeting }) => {
     "Erik Velez",
   ];
 
-  const handleAddMeeting = (date, counselor) => {
-    addMeeting(date, counselor);
-  };
-
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleSave = () => {
+    saveMeeting(date, counselor);
   };
 
   const handleClose = () => {
@@ -45,20 +40,15 @@ const MeetingScheduler = ({ addMeeting, meeting }) => {
   };
 
   function handleAccept(date, counselor) {
-    handleAddMeeting(date, counselor);
+    handleSave(date, counselor);
+    setDate(dayjs());
+    setCounselor("");
     handleClose();
   }
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Fragment>
-        <Button
-          variant="outlined"
-          startIcon={<AddIcon />}
-          onClick={handleClickOpen}
-        >
-          Schedule Meeting
-        </Button>
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>Schedule Meeting</DialogTitle>
           <DialogContent>
@@ -70,13 +60,14 @@ const MeetingScheduler = ({ addMeeting, meeting }) => {
                   actions: [],
                 },
               }}
+              minDateTime={dayjs()}
             />
             <FormControl fullWidth>
               <InputLabel variant="standard" htmlFor="uncontrolled-native">
                 Counselor
               </InputLabel>
               <NativeSelect
-                defaultValue={""}
+                defaultValue={counselor}
                 inputProps={{
                   name: "counselor",
                   id: "uncontrolled-native",
