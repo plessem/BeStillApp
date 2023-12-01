@@ -10,6 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
 import EmotionTracker from "./EmotionTracker";
 import MeetingScheduler from "./MeetingScheduler";
+import HotlinesPage from "./Hotlines";
 import React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -39,7 +40,9 @@ const HomePage = () => {
                       Need help? Click the button below to get immediate
                       assistance.
                     </Typography>
-                    <Button variant="contained">Get Help</Button>
+                    <Link to="/hotlines">
+                      <Button variant="contained">Get Help</Button>
+                    </Link>
                   </CardContent>
                 </Card>
                 <Card className="card" id="schedule-appointment">
@@ -77,6 +80,7 @@ const HomePage = () => {
             }
           />
           {/* Add a Route for the emotion page */}
+          <Route path="/hotlines" element={<HotlinesPage />} />
           <Route path="/track-emotions" element={<EmotionTracker />} />
           <Route path="/schedule" element={<MeetingScheduler />} />
         </Routes>
@@ -89,4 +93,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
