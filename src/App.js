@@ -9,7 +9,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
 import EmotionTracker from "./EmotionTracker";
-import MeetingScheduler from "./MeetingScheduler";
+import MeetingMain from "./Meeting/MeetingMain";
 import React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -17,19 +17,22 @@ import Typography from "@mui/material/Typography";
 const HomePage = () => {
   return (
     <Box className="app">
-      <AppBar position="static">
-        <Toolbar>
-          <div className="my-element">
-            <Typography variant="h6" component="div">
-              BeStill
-            </Typography>
-          </div>
-        </Toolbar>
-      </AppBar>
+      
       <Router>
+        <AppBar position="static">
+          <Toolbar>
+            <div className="my-element">
+              <Typography variant="h6" component="div">
+                <Link to="/BeStillApp" style={{ textDecoration: "none", color: "inherit" }}>
+                  BeStill
+                </Link>
+              </Typography>
+            </div>
+          </Toolbar>
+        </AppBar>
         <Routes>
           <Route
-            path="/"
+            path="/BeStillApp"
             element={
               <Container className="app-main">
                 <Card className="card" id="get-help-now">
@@ -78,7 +81,7 @@ const HomePage = () => {
           />
           {/* Add a Route for the emotion page */}
           <Route path="/track-emotions" element={<EmotionTracker />} />
-          <Route path="/schedule" element={<MeetingScheduler />} />
+          <Route path="/schedule" element={<MeetingMain />} />
         </Routes>
       </Router>
       <Box className="app-footer" component="footer">
@@ -89,4 +92,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
