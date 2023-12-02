@@ -269,7 +269,7 @@ const SmileyFace = () => {
                 }}
               >
                 {selectedWord && typeof selectedWord === "string" && (
-                  <h3>It's okay to feel {selectedWord.toLowerCase()} today.</h3>
+                  <h3>You're feeling {selectedWord.toLowerCase()} today.</h3>
                 )}
               </div>
             </Box>
