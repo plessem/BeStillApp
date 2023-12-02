@@ -26,8 +26,8 @@ const MeetingMain = () => {
   const [open, setOpen] = useState(false);
 
   
-  function addMeeting(date, counselor) {
-    setMeetings([...meetings, { date: date, counselor: counselor }]);
+  function addMeeting(date, counselor, note) {
+    setMeetings([...meetings, { date: date, counselor: counselor, note: note }]);
   }
 
   const handleClickOpen = () => {
@@ -47,16 +47,16 @@ const MeetingMain = () => {
     setEditingMeeting(null);
   }
 
-  function handleSave(date, counselor) {
+  function handleSave(date, counselor, note) {
     if (editingMeeting) {
       const index =meetings.findIndex(meeting => meeting === editingMeeting);
       const newMeetings = [...meetings];
-      newMeetings[index] = {date, counselor};
+      newMeetings[index] = {date, counselor, note};
       
       setMeetings(newMeetings);
       setEditingMeeting(null);
     } else {
-      addMeeting(date, counselor);
+      addMeeting(date, counselor, note);
     }
   }
 
