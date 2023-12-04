@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/BeStillApp/static/css/main.911028f0.css",
-    "main.js": "/BeStillApp/static/js/main.d1fcce34.js",
+    "main.css": "/BeStillApp/static/css/main.f18fe108.css",
+    "main.js": "/BeStillApp/static/js/main.c46d8fdc.js",
     "static/js/787.1d998892.chunk.js": "/BeStillApp/static/js/787.1d998892.chunk.js",
     "index.html": "/BeStillApp/index.html",
-    "main.911028f0.css.map": "/BeStillApp/static/css/main.911028f0.css.map",
-    "main.d1fcce34.js.map": "/BeStillApp/static/js/main.d1fcce34.js.map",
+    "main.f18fe108.css.map": "/BeStillApp/static/css/main.f18fe108.css.map",
+    "main.c46d8fdc.js.map": "/BeStillApp/static/js/main.c46d8fdc.js.map",
     "787.1d998892.chunk.js.map": "/BeStillApp/static/js/787.1d998892.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.911028f0.css",
-    "static/js/main.d1fcce34.js"
+    "static/css/main.f18fe108.css",
+    "static/js/main.c46d8fdc.js"
   ]
 }
