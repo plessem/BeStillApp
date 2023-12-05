@@ -18,13 +18,15 @@ import Typography from "@mui/material/Typography";
 const HomePage = () => {
   return (
     <Box className="app">
-      
       <Router>
         <AppBar position="static">
           <Toolbar>
             <div className="my-element">
               <Typography variant="h6" component="div">
-                <Link to="/BeStillApp" style={{ textDecoration: "none", color: "inherit" }}>
+                <Link
+                  to="/BeStillApp"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   BeStill
                 </Link>
               </Typography>
