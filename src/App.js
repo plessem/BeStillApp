@@ -14,23 +14,28 @@ import MeetingMain from "./Meeting/MeetingMain";
 import React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+
+// ... (Previous imports)
 
 const HomePage = () => {
   return (
     <Box className="app">
       <Router>
-        <AppBar position="static">
+        <AppBar position="static" color="primary">
           <Toolbar>
-            <div className="my-element">
-              <Typography variant="h6" component="div">
-                <Link
-                  to="/BeStillApp"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  BeStill
-                </Link>
-              </Typography>
-            </div>
+            <Typography
+              variant="h4"
+              component="div"
+              style={{ flexGrow: 1, color: "white" }}
+            >
+              <Link
+                to="/BeStillApp"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                BeStill
+              </Link>
+            </Typography>
           </Toolbar>
         </AppBar>
         <Routes>
@@ -38,60 +43,123 @@ const HomePage = () => {
             path="/BeStillApp"
             element={
               <Container className="app-main">
-                <Card className="card" id="get-help-now">
-                  <CardContent>
-                    <Typography variant="h5">Get Help Now</Typography>
-                    <Typography variant="body2">
-                      Need help? Click the button below to get immediate
-                      assistance.
-                    </Typography>
-                    <Link to="/hotlines">
-                      <Button variant="contained">Get Help</Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-                <Card className="card" id="schedule-appointment">
-                  <CardContent>
-                    <Typography variant="h5">Schedule Appointment</Typography>
-                    <Typography variant="body2">
-                      Schedule your appointment with just one click.
-                    </Typography>
-                    <Link to="/schedule">
-                      <Button variant="contained">Schedule</Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-                <Card className="card" id="track-emotions">
-                  <CardContent>
-                    <Typography variant="h5">Track Your Emotions</Typography>
-                    <Typography variant="body2">
-                      Keep track of your emotions and feelings.
-                    </Typography>
-                    <Link to="/track-emotions">
-                      <Button variant="contained">Track</Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-                <Card className="card" id="learn-more">
-                  <CardContent>
-                    <Typography variant="h5">Learn More</Typography>
-                    <Typography variant="body2">
-                      Want to learn more about our services? Click below.
-                    </Typography>
-                    <Button variant="contained">Learn More</Button>
-                  </CardContent>
-                </Card>
+                <Grid container spacing={2}>
+                  {/* First Column */}
+                  <Grid item xs={6}>
+                    <Card className="card" id="get-help-now" variant="outlined">
+                      <CardContent>
+                        <Typography variant="h4" style={{ color: "#3f51b5" }}>
+                          Immediate Assistance
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          style={{ marginTop: "1rem" }}
+                        >
+                          Click below for help right now.
+                        </Typography>
+                        <Link to="/hotlines">
+                          <Button
+                            variant="contained"
+                            color="secondary"
+                            style={{ marginTop: "2rem" }}
+                          >
+                            Get Help
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+
+                    <Card
+                      className="card"
+                      id="track-emotions"
+                      variant="outlined"
+                    >
+                      <CardContent>
+                        <Typography variant="h4" style={{ color: "#00796b" }}>
+                          Track Your Emotions
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          style={{ marginTop: "1rem" }}
+                        >
+                          Keep a record of your feelings.
+                        </Typography>
+                        <Link to="/track-emotions">
+                          <Button
+                            variant="contained"
+                            color="success"
+                            style={{ marginTop: "2rem" }}
+                          >
+                            Track
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+
+                  {/* Second Column */}
+                  <Grid item xs={6}>
+                    <Card
+                      className="card"
+                      id="schedule-appointment"
+                      variant="outlined"
+                    >
+                      <CardContent>
+                        <Typography variant="h4" style={{ color: "#d32f2f" }}>
+                          Schedule Appointment
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          style={{ marginTop: "1rem" }}
+                        >
+                          Book your appointment in one click.
+                        </Typography>
+                        <Link to="/schedule">
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            style={{ marginTop: "2rem" }}
+                          >
+                            Schedule
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="card" id="learn-more" variant="outlined">
+                      <CardContent>
+                        <Typography variant="h4" style={{ color: "#ff9800" }}>
+                          Discover More
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          style={{ marginTop: "1rem" }}
+                        >
+                          Explore what our services offer.
+                        </Typography>
+                        <Button
+                          variant="contained"
+                          color="warning"
+                          style={{ marginTop: "2rem" }}
+                        >
+                          Learn More
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                </Grid>
               </Container>
             }
           />
-          {/* Add a Route for the emotion page */}
-          <Route path="/hotlines" element={<HotlinesPage />} />
-          <Route path="/track-emotions" element={<EmotionTracker />} />
-          <Route path="/schedule" element={<MeetingMain />} />
+          {/* ... */}
         </Routes>
       </Router>
-      <Box className="app-footer" component="footer">
-        © 2023 Our App
+      <Box
+        className="app-footer"
+        component="footer"
+        style={{ backgroundColor: "#333", color: "white" }}
+      >
+        © 2023 BeStill App
       </Box>
     </Box>
   );
