@@ -39,43 +39,45 @@ const HomePage = () => {
           </Toolbar>
         </AppBar>
 
-        {/* App Description */}
-        <Box
-          className="app-description"
-          style={{ backgroundColor: "#eee", padding: "1rem" }}
-        >
-          <Typography variant="h5" style={{ color: "#333" }}>
-            Your One-Stop Solution for Missionary Well-being
-          </Typography>
-          <Typography variant="body1" style={{ marginTop: "0.5rem" }}>
-            BeStill provides missionaries with tools to schedule appointments,
-            find help, track emotions, and access valuable information.
-          </Typography>
-        </Box>
-
-        {/* Quote Section */}
-        <Box
-          className="quote-section"
-          style={{
-            backgroundColor: "#5f5f69",
-            color: "white",
-            padding: "2rem",
-            textAlign: "center",
-          }}
-        >
-          <Typography variant="h6" style={{ fontStyle: "italic" }}>
-            "My son, peace be unto thy soul; thine adversity and thine
-            afflictions shall be but a small moment; And then, if thou endure it
-            well, God shall exalt thee on high; thou shalt triumph over all thy
-            foes." -D&C 121:7-8
-          </Typography>
-        </Box>
-
         <Routes>
           <Route
             path="/BeStillApp"
             element={
               <Container className="app-main">
+                {/* App Description */}
+                <Box
+                  className="app-description"
+                  style={{ backgroundColor: "#eee", padding: "1rem" }}
+                >
+                  <Typography variant="h5" style={{ color: "#333" }}>
+                    Your One-Stop Solution for Missionary Well-being
+                  </Typography>
+                  <Typography variant="body1" style={{ marginTop: "0.5rem" }}>
+                    BeStill provides missionaries with tools to schedule
+                    appointments, find help, track emotions, and access valuable
+                    information.
+                  </Typography>
+                </Box>
+
+                {/* Quote Section */}
+                <Box
+                  className="quote-section"
+                  style={{
+                    backgroundColor: "#5f5f69",
+                    color: "white",
+                    padding: "2rem",
+                    textAlign: "center",
+                  }}
+                >
+                  <Typography variant="h6" style={{ fontStyle: "italic" }}>
+                    "My son, peace be unto thy soul; thine adversity and thine
+                    afflictions shall be but a small moment; And then, if thou
+                    endure it well, God shall exalt thee on high; thou shalt
+                    triumph over all thy foes." -D&C 121:7-8
+                  </Typography>
+                </Box>
+                <br></br>
+                <br></br>
                 <Grid container spacing={2}>
                   {/* First Column */}
                   <Grid item xs={6}>
