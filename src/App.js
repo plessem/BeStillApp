@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-
+import LearnMorePage from "./learnmore";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,7 +11,6 @@ import Container from "@mui/material/Container";
 import EmotionTracker from "./EmotionTracker";
 import HotlinesPage from "./Hotlines";
 import MeetingMain from "./Meeting/MeetingMain";
-import LearnMorePage from "./learnmore";
 import React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -173,14 +172,15 @@ const HomePage = () => {
                         >
                           Explore what our services offer.
                         </Typography>
-                        <Link to="/learnmore"></Link>
-                        <Button
-                          variant="contained"
-                          color="warning"
-                          style={{ marginTop: "2rem" }}
-                        >
-                          Learn More
-                        </Button>
+                        <Link to="/learnmore">
+                          <Button
+                            variant="contained"
+                            color="warning"
+                            style={{ marginTop: "2rem" }}
+                          >
+                            Learn More
+                          </Button>
+                        </Link>
                       </CardContent>
                     </Card>
                   </Grid>
