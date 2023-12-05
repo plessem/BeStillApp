@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import EmotionTracker from "./EmotionTracker";
 import HotlinesPage from "./Hotlines";
 import MeetingMain from "./Meeting/MeetingMain";
+import LearnMorePage from "./learnmore";
 import React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -172,6 +173,7 @@ const HomePage = () => {
                         >
                           Explore what our services offer.
                         </Typography>
+                        <Link to="/learnmore"></Link>
                         <Button
                           variant="contained"
                           color="warning"
@@ -190,6 +192,7 @@ const HomePage = () => {
           <Route path="/hotlines" element={<HotlinesPage />} />
           <Route path="/track-emotions" element={<EmotionTracker />} />
           <Route path="/schedule" element={<MeetingMain />} />
+          <Route path="/learnmore" element={<LearnMorePage />} />
         </Routes>
       </Router>
       <br></br>
