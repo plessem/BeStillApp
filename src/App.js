@@ -151,7 +151,10 @@ const HomePage = () => {
               </Container>
             }
           />
-          {/* ... */}
+          {/* Add a Route for the emotion page */}
+          <Route path="/hotlines" element={<HotlinesPage />} />
+          <Route path="/track-emotions" element={<EmotionTracker />} />
+          <Route path="/schedule" element={<MeetingMain />} />
         </Routes>
       </Router>
       <Box
