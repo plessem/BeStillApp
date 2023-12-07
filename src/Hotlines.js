@@ -1,5 +1,5 @@
+import { Container } from '@mui/material'
 import React from "react";
-
 const HotlinesPage = () => {
   const phoneNumbers = {
     "Mission President": "111-111-1111",
@@ -19,7 +19,7 @@ const HotlinesPage = () => {
   };
 
   return (
-    <div className="container">
+    <Container className="container">
       <h1>Hotlines</h1>
       <ul>
         {Object.entries(hotlineNumbers).map(([category, hotlineNumbers]) => (
@@ -29,7 +29,7 @@ const HotlinesPage = () => {
         ))}
       </ul>
       <br></br>
-      <button onClick={handleRedirect}>More Hotline Infomation</button>
+      <button onClick={handleRedirect}>Explore More Hotlines</button>
       <br></br>
       <br></br>
       <h2>Mission Phone Numbers</h2>
@@ -42,7 +42,7 @@ const HotlinesPage = () => {
       </ul>
       <br></br>
       <br></br>
-    </div>
+    </Container>
   );
 };
 
