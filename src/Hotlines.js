@@ -26,21 +26,21 @@ const HotlinesPage = () => {
   const hotlineNumbers = [
     {
       category: "Suicide Hotline",
-      phoneNumber: "988"
+      phoneNumber: "988",
+      website: "https://988lifeline.org",
     },
     {
       category: "Crisis Text Line",
-      phoneNumber: "Text HOME to 741741"
+      phoneNumber: "Text HOME to 741741",
+      website: "https://www.crisistextline.org/"
     },
     {
       category: "National Mental Health Hotline",
-      phoneNumber: "866-903-3787"
+      phoneNumber: "866-903-3787",
+      website: "https://mentalhealthhotline.org"
     }
   ];
 
-  const handleRedirect = () => {
-    window.location.href = "https://www.apa.org/topics/crisis-hotlines";
-  };
 
   return (
     <Container className="container">
@@ -49,7 +49,7 @@ const HotlinesPage = () => {
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {hotlineNumbers.map((number, index) => (
           <Grid item xs={6}>
-            <PhoneNumberCard key={index} category={number.category} phoneNumber={number.phoneNumber} />
+            <PhoneNumberCard key={index} category={number.category} phoneNumber={number.phoneNumber} website={number.website} />
           </Grid>
         ))}
       </Grid>
