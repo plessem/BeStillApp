@@ -196,7 +196,7 @@ const ResourcesMain = () => {
                                     }}
                                   >
                                     <Typography variant="h6">
-                                      {resource.name}
+                                      {toTitleCase(resource.name)}
                                     </Typography>
                                   </a>
                                 </div>
@@ -230,7 +230,7 @@ const ResourcesMain = () => {
                                     }}
                                   >
                                     <Typography variant="h6">
-                                      {resource.name}
+                                      {toTitleCase(resource.name)}
                                     </Typography>
                                   </a>
                                 </div>
