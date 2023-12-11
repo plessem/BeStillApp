@@ -15,15 +15,15 @@ import {
   TableRow,
   Tooltip,
 } from "@mui/material";
-import { DurationInput, createEvent } from 'ics';
+import { DurationInput, createEvent } from "ics";
 import React, { useState } from "react";
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import { IconButton } from "@mui/material";
-import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
+import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import MeetingScheduler from "./MeetingScheduler";
 import dayjs from "dayjs";
@@ -35,18 +35,20 @@ const MeetingMain = () => {
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [deleteMeetingIndex, setDeleteMeetingIndex] = useState(null);
 
-  
   function addMeeting(date, counselor, note) {
-    setMeetings([...meetings, { date: date, counselor: counselor, note: note }]);
+    setMeetings([
+      ...meetings,
+      { date: date, counselor: counselor, note: note },
+    ]);
   }
 
   const handleClickOpen = () => {
     setOpen(true);
-  }
+  };
 
   const handleClickDeleteOpen = () => {
     setOpenDeleteDialog(true);
-  }
+  };
 
   function handleEditOpen(index) {
     const meetingToEdit = meetings[index];
@@ -65,7 +67,7 @@ const MeetingMain = () => {
     handleDelete(index);
     setOpenDeleteDialog(false);
   };
-  
+
   const handleCancelDelete = () => {
     // Close delete dialog without performing delete action
     setOpenDeleteDialog(false);
@@ -73,10 +75,10 @@ const MeetingMain = () => {
 
   function handleSave(date, counselor, note) {
     if (editingMeeting) {
-      const index =meetings.findIndex(meeting => meeting === editingMeeting);
+      const index = meetings.findIndex((meeting) => meeting === editingMeeting);
       const newMeetings = [...meetings];
-      newMeetings[index] = {date, counselor, note};
-      
+      newMeetings[index] = { date, counselor, note };
+
       setMeetings(newMeetings);
       setEditingMeeting(null);
     } else {
@@ -86,26 +88,32 @@ const MeetingMain = () => {
 
   function downloadIcsFile(meeting) {
     const event = {
-      start: [meeting.date.year(), meeting.date.month() + 1, meeting.date.date(), meeting.date.hour(), meeting.date.minute()],
+      start: [
+        meeting.date.year(),
+        meeting.date.month() + 1,
+        meeting.date.date(),
+        meeting.date.hour(),
+        meeting.date.minute(),
+      ],
       duration: { hours: 1 }, // adjust as needed
-      title: 'Meeting with ' + meeting.counselor,
+      title: "Meeting with " + meeting.counselor,
       description: meeting.note,
-      organizer: { name: 'Meeting Scheduler', email: 'scheduler@example.com' }, // adjust as needed
+      organizer: { name: "Meeting Scheduler", email: "scheduler@example.com" }, // adjust as needed
       attendees: [
-        { name: meeting.counselor, email: 'counselor@example.com' } // adjust as needed
+        { name: meeting.counselor, email: "counselor@example.com" }, // adjust as needed
       ],
     };
-  
+
     createEvent(event, (error, value) => {
       if (error) {
         console.log(error);
         return;
       }
-  
-      const blob = new Blob([value], { type: 'text/calendar;charset=utf-8' });
-      const link = document.createElement('a');
+
+      const blob = new Blob([value], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = 'meeting.ics';
+      link.download = "meeting.ics";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -114,21 +122,25 @@ const MeetingMain = () => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      
-      <Container sx={{ padding: '20px' }} maxWidth="sm">
-        <MeetingScheduler open={open} setOpen={setOpen} saveMeeting={handleSave} meeting={editingMeeting}/>
+      <Container sx={{ padding: "20px" }} maxWidth="sm">
+        <MeetingScheduler
+          open={open}
+          setOpen={setOpen}
+          saveMeeting={handleSave}
+          meeting={editingMeeting}
+        />
         <Tooltip title="Schedule Meeting">
           <Button
             variant="outlined"
             startIcon={<AddIcon />}
             onClick={handleClickOpen}
-            sx={{ marginBottom: '20px' }}
-            >
+            sx={{ marginBottom: "20px" }}
+          >
             Schedule Meeting
           </Button>
         </Tooltip>
-        <TableContainer component = {Paper}>
-          <Table sx={{ minWidth:500}} >
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 500 }}>
             <TableHead>
               <TableRow>
                 <TableCell>Date</TableCell>
@@ -143,7 +155,7 @@ const MeetingMain = () => {
               {meetings.map((meeting, index) => (
                 <TableRow
                   key={meeting.date}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="meeting">
                     {meeting.date.format("dddd, MMMM D, YYYY")}
@@ -157,7 +169,7 @@ const MeetingMain = () => {
                   <TableCell component="th" scope="meeting">
                     <Tooltip title="Add to Calendar">
                       <IconButton onClick={() => downloadIcsFile(meeting)}>
-                        <InsertInvitationIcon/>
+                        <InsertInvitationIcon />
                       </IconButton>
                     </Tooltip>
                   </TableCell>
@@ -188,7 +200,13 @@ const MeetingMain = () => {
                       </DialogContent>
                       <DialogActions>
                         <Button onClick={handleCancelDelete}>Cancel</Button>
-                        <Button onClick={() => handleDeleteConfirmation(deleteMeetingIndex)}>Delete</Button>
+                        <Button
+                          onClick={() =>
+                            handleDeleteConfirmation(deleteMeetingIndex)
+                          }
+                        >
+                          Delete
+                        </Button>
                       </DialogActions>
                     </Dialog>
                   </TableCell>
