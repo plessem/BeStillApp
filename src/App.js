@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import EmotionTracker from "./EmotionTracker";
 import HotlinesPage from "./Hotlines";
 import MeetingMain from "./Meeting/MeetingMain";
+import ResourcesMain from "./Resources/ResourcesMain";
 import React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -78,7 +79,9 @@ const HomePage = () => {
                     <Typography variant="body2">
                       Want to learn more about our services? Click below.
                     </Typography>
-                    <Button variant="contained">Learn More</Button>
+                    <Link to="/resources">
+                      <Button variant="contained">Learn More</Button>
+                    </Link>{" "}
                   </CardContent>
                 </Card>
               </Container>
@@ -88,6 +91,7 @@ const HomePage = () => {
           <Route path="/hotlines" element={<HotlinesPage />} />
           <Route path="/track-emotions" element={<EmotionTracker />} />
           <Route path="/schedule" element={<MeetingMain />} />
+          <Route path="/resources" element={<ResourcesMain />} />
         </Routes>
       </Router>
       <Box className="app-footer" component="footer">
