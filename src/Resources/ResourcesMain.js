@@ -184,7 +184,23 @@ const ResourcesMain = () => {
                         <AccordionDetails>
                           <List>
                             {getResourcesByConcern(concern).map((resource) => (
-                              <ListItem>{toTitleCase(resource.name)}</ListItem>
+                              <ListItem>
+                                <div>
+                                  <a
+                                    href={resource.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                      color: "black",
+                                      textDecoration: "none",
+                                    }}
+                                  >
+                                    <Typography variant="h6">
+                                      {resource.name}
+                                    </Typography>
+                                  </a>
+                                </div>
+                              </ListItem>
                             ))}
                           </List>
                         </AccordionDetails>
@@ -202,7 +218,23 @@ const ResourcesMain = () => {
                         <AccordionDetails>
                           <List>
                             {getResourcesByConcern(concern).map((resource) => (
-                              <ListItem>{toTitleCase(resource.name)}</ListItem>
+                              <ListItem>
+                                <div>
+                                  <a
+                                    href={resource.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                      color: "black",
+                                      textDecoration: "none",
+                                    }}
+                                  >
+                                    <Typography variant="h6">
+                                      {resource.name}
+                                    </Typography>
+                                  </a>
+                                </div>
+                              </ListItem>
                             ))}
                           </List>
                         </AccordionDetails>
